@@ -33,12 +33,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => StartWidget(),
+      errorBuilder: (context, state) => GestionCabinetWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => StartWidget(),
+          builder: (context, _) => GestionCabinetWidget(),
         ),
         FFRoute(
           name: HomePageWidget.routeName,
@@ -64,6 +64,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: StartWidget.routeName,
           path: StartWidget.routePath,
           builder: (context, params) => StartWidget(),
+        ),
+        FFRoute(
+          name: GestionCabinetWidget.routeName,
+          path: GestionCabinetWidget.routePath,
+          builder: (context, params) => GestionCabinetWidget(),
+        ),
+        FFRoute(
+          name: GestionCabinetCathegoryWidget.routeName,
+          path: GestionCabinetCathegoryWidget.routePath,
+          builder: (context, params) => GestionCabinetCathegoryWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

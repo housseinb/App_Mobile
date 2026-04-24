@@ -361,7 +361,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 8.0),
                                   child: Text(
-                                    'Claim your \ndiscount 30% \ndaily now!',
+                                    'Chercher\nVotre \nNitrosioniste',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -962,10 +962,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   ),
                 ),
               ),
-              wrapWithModel(
-                model: _model.navBarModel,
-                updateCallback: () => safeSetState(() {}),
-                child: NavBarWidget(),
+              Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: wrapWithModel(
+                  model: _model.navBarModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: NavBarWidget(),
+                ),
               ),
             ],
           ),
