@@ -7,8 +7,8 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'gestion_cabinet_model.dart';
-export 'gestion_cabinet_model.dart';
+import 'gestion_cabinet_dashbored_model.dart';
+export 'gestion_cabinet_dashbored_model.dart';
 
 /// Create a modern mobile UI for "Gestion Cabinet" (nutritionists booking
 /// feature).
@@ -51,25 +51,27 @@ export 'gestion_cabinet_model.dart';
 /// Use reusable components and prepare for backend integration.
 ///
 /// use the template that i have already and modifie from it
-class GestionCabinetWidget extends StatefulWidget {
-  const GestionCabinetWidget({super.key});
+class GestionCabinetDashboredWidget extends StatefulWidget {
+  const GestionCabinetDashboredWidget({super.key});
 
-  static String routeName = 'Gestion_cabinet';
-  static String routePath = '/gestionCabinet';
+  static String routeName = 'Gestion_cabinet_dashbored';
+  static String routePath = '/gestionCabinetDashbored';
 
   @override
-  State<GestionCabinetWidget> createState() => _GestionCabinetWidgetState();
+  State<GestionCabinetDashboredWidget> createState() =>
+      _GestionCabinetDashboredWidgetState();
 }
 
-class _GestionCabinetWidgetState extends State<GestionCabinetWidget> {
-  late GestionCabinetModel _model;
+class _GestionCabinetDashboredWidgetState
+    extends State<GestionCabinetDashboredWidget> {
+  late GestionCabinetDashboredModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => GestionCabinetModel());
+    _model = createModel(context, () => GestionCabinetDashboredModel());
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
@@ -800,60 +802,6 @@ class _GestionCabinetWidgetState extends State<GestionCabinetWidget> {
                                                         ),
                                                   ),
                                                 ),
-                                                Container(
-                                                  height: 29.9,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .success,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20.0),
-                                                  ),
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsets.all(8.0),
-                                                      child: Text(
-                                                        'Disponible',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font:
-                                                                      GoogleFonts
-                                                                          .inter(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                                  fontSize:
-                                                                      11.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
                                               ],
                                             ),
                                             Padding(
@@ -1034,71 +982,203 @@ class _GestionCabinetWidgetState extends State<GestionCabinetWidget> {
                                                 ],
                                               ),
                                             ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  1.0, 0.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () async {
-                                                  context.pushNamed(
-                                                    GestionCabinetDetailWidget
-                                                        .routeName,
-                                                    queryParameters: {
-                                                      'cabinetRecord':
-                                                          serializeParam(
-                                                        listViewCabinetRecord,
-                                                        ParamType.Document,
-                                                      ),
-                                                    }.withoutNulls,
-                                                    extra: <String, dynamic>{
-                                                      'cabinetRecord':
-                                                          listViewCabinetRecord,
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          1.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                        GestionCabinetUpdateWidget
+                                                            .routeName,
+                                                        queryParameters: {
+                                                          'nom': serializeParam(
+                                                            listViewCabinetRecord
+                                                                .nom,
+                                                            ParamType.String,
+                                                          ),
+                                                          'adress':
+                                                              serializeParam(
+                                                            listViewCabinetRecord
+                                                                .adresse,
+                                                            ParamType.String,
+                                                          ),
+                                                          'tel': serializeParam(
+                                                            listViewCabinetRecord
+                                                                .telephone,
+                                                            ParamType.String,
+                                                          ),
+                                                          'email':
+                                                              serializeParam(
+                                                            listViewCabinetRecord
+                                                                .email,
+                                                            ParamType.String,
+                                                          ),
+                                                          'spe': serializeParam(
+                                                            listViewCabinetRecord
+                                                                .specialite,
+                                                            ParamType.String,
+                                                          ),
+                                                          'desc':
+                                                              serializeParam(
+                                                            listViewCabinetRecord
+                                                                .description,
+                                                            ParamType.String,
+                                                          ),
+                                                          'img': serializeParam(
+                                                            listViewCabinetRecord
+                                                                .image,
+                                                            ParamType.String,
+                                                          ),
+                                                          'ref': serializeParam(
+                                                            listViewCabinetRecord
+                                                                .reference,
+                                                            ParamType
+                                                                .DocumentReference,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
                                                     },
-                                                  );
-                                                },
-                                                text: 'Voir profil',
-                                                options: FFButtonOptions(
-                                                  height: 30.0,
+                                                    text: 'Update',
+                                                    options: FFButtonOptions(
+                                                      height: 30.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  14.0,
+                                                                  0.0,
+                                                                  14.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: Color(0xFFD3977D),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelSmall
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelSmall
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmall
+                                                                    .fontStyle,
+                                                              ),
+                                                      elevation: 0.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          14.0, 0.0, 14.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: Color(0xFFD3977D),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelSmall
-                                                      .override(
-                                                        font: GoogleFonts.inter(
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                        color: Colors.white,
-                                                        fontSize: 12.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontStyle:
+                                                          50.0, 0.0, 0.0, 0.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await listViewCabinetRecord
+                                                          .reference
+                                                          .delete();
+                                                    },
+                                                    child: Container(
+                                                      height: 29.9,
+                                                      decoration: BoxDecoration(
+                                                        color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelSmall
-                                                                .fontStyle,
+                                                                .error,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(20.0),
                                                       ),
-                                                  elevation: 0.0,
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  8.0),
+                                                          child: Text(
+                                                            'Delete',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .alternate,
+                                                                  fontSize:
+                                                                      11.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
                                                   ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20.0),
                                                 ),
-                                              ),
+                                              ],
                                             ),
                                           ],
                                         ),

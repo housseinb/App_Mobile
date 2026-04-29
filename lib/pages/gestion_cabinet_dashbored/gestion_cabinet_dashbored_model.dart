@@ -1,9 +1,11 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'gestion_cabinet_widget.dart' show GestionCabinetWidget;
+import 'gestion_cabinet_dashbored_widget.dart'
+    show GestionCabinetDashboredWidget;
 import 'package:flutter/material.dart';
 
-class GestionCabinetModel extends FlutterFlowModel<GestionCabinetWidget> {
+class GestionCabinetDashboredModel
+    extends FlutterFlowModel<GestionCabinetDashboredWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextField widget.

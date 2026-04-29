@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "105481139375",
+    "project_id": "be-healthy-6gl9ay",
+    "storage_bucket": "be-healthy-6gl9ay.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105481139375:android:b52f013611ed4cd91fd05a",
+        "android_client_info": {
+          "package_name": "com.SynergyLabs.vendordash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD8wKulr-DAcHllY5Ih6jsjHArJ4PKVjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
